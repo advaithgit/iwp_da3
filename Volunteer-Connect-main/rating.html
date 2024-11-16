@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Volunteer Event Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .event-card {
+            max-width: 400px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .event-complete {
+            background-color: #28a745;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        .rating-section {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .rating-item {
+            margin-bottom: 1.5rem;
+        }
+        .rating-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .rating-value {
+            font-weight: bold;
+        }
+        .btn-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color from the parent button */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Volunteer Event Review</h1>
+        
+        <div class="card event-card">
+            <img src="./CHILDREN.jpg" class="card-img-top" alt="Event Image">
+            <div class="card-body">
+                <h5 class="card-title">Save the Children <span class="event-complete">Event Complete</span></h5>
+                <p class="card-text">Rotary Club, Chennai</p>
+                <p class="card-text"><small class="text-muted">Date: August 12, 2024</small></p>
+            </div>
+        </div>
+
+        <div class="rating-section">
+            <h4 class="mb-4">Please rate your experience:</h4>
+            
+            <div class="rating-item">
+                <div class="rating-label">
+                    <span>Event Organization and Management</span>
+                    <span class="rating-value">0</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="5" step="0.5" id="organizationRange">
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-label">
+                    <span>Volunteer Experience</span>
+                    <span class="rating-value">0</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="5" step="0.5" id="experienceRange">
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-label">
+                    <span>Impact and Purpose</span>
+                    <span class="rating-value">0</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="5" step="0.5" id="impactRange">
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-label">
+                    <span>Support and Resources</span>
+                    <span class="rating-value">0</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="5" step="0.5" id="supportRange">
+            </div>
+
+            <div class="rating-item">
+                <div class="rating-label">
+                    <span>Team Dynamics and Collaboration</span>
+                    <span class="rating-value">0</span>
+                </div>
+                <input type="range" class="form-range" min="0" max="5" step="0.5" id="teamRange">
+            </div>
+
+            <div class="mb-3">
+                <label for="comments" class="form-label">Additional Comments:</label>
+                <textarea class="form-control" id="comments" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary"> <a href="listing.html" class="btn btn-primary">Submit Review</a></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.form-range').forEach(range => {
+            range.addEventListener('input', function() {
+                this.parentNode.querySelector('.rating-value').textContent = this.value;
+            });
+        });
+    
+        // Remove or comment out the event listener for the submit button
+        // as it's now handled by the HTML anchor tag
+    </script>
+    
+</body>
+</html>

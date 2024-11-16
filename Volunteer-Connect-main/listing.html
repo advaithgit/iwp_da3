@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Connect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .perk-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 0.2em 0.6em;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+        .sidebar {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .sidebar {
+                display: block;
+            }
+        }
+        .btn-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color from the parent button */
+}
+
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Volunteer Connect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                </ul>
+                <form class="d-flex me-2">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle">                        User
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="./index.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar (Collapsible) -->
+            <button class="btn btn-secondary d-md-none mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse">
+                ☰ Filters
+            </button>
+            <nav id="sidebarCollapse" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Filters</span>
+                    </h5>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Age Group</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="age18-25">
+                                <label class="form-check-label" for="age18-25">18-25</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="age26-35">
+                                <label class="form-check-label" for="age26-35">26-35</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="age36-50">
+                                <label class="form-check-label" for="age36-50">36-50</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="age50plus">
+                                <label class="form-check-label" for="age50plus">50+</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Type of Event</label>
+                            <select class="form-select">
+                                <option selected>Choose...</option>
+                                <option>Community Service</option>
+                                <option>Awareness Campaign</option>
+                                <option>Fundraising</option>
+                                <option>Workshops/Training</option>
+                                <option>Disaster Relief</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Date</label>
+                            <select class="form-select">
+                                <option selected>Choose...</option>
+                                <option>This week</option>
+                                <option>Fortnight</option>
+                                <option>This Month</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Skills</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="technicalSkills">
+                                <label class="form-check-label" for="technicalSkills">Technical Skills</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="generalSkills">
+                                <label class="form-check-label" for="generalSkills">General Skills</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="managerialSkills">
+                                <label class="form-check-label" for="managerialSkills">Managerial Skills</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Duration</label>
+                            <input type="range" class="form-range" min="1" max="3" step="1" id="durationRange">
+                            <div class="d-flex justify-content-between">
+                                <span><b>Short-term (1 Day)</b></span>
+                                <span><b>Medium-term (1-2 Days)</b></span>
+                                <span><b>Long-term (2+ Days)</b></span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </form>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="position-relative">
+                    <div id="cardCarousel" class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y" id="prevBtn" style="z-index: 1000;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y" id="nextBtn" style="z-index: 1000;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+            </main>
+            
+            <script>
+            // Card data (you can expand this array with more cards)
+            const cardData = [
+                {
+                    title: "Save the Children",
+                    image: "./CHILDREN.jpg",
+                    description: "Join us for a day of community service to empower the local growing ups.",
+                    date: "June 15, 2024",
+                    location: "Central Park",
+                    skills: "General",
+                    ageGroup: "18+",
+                    perk: "Free T-shirt"
+                },
+                {
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },
+                {
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                },{
+                    title: "Tech Workshop",
+                    image: "./CHILDREN.jpg",
+                    description: "Teach basic computer skills to senior citizens in our community.",
+                    date: "July 1-3, 2024",
+                    location: "Community Center",
+                    skills: "Technical",
+                    ageGroup: "20-40",
+                    perk: "Certificate"
+                }
+                
+                // ... Add more card data objects here
+            ];
+            
+            let currentPage = 0;
+            const cardsPerPage = 6;
+            
+            function createCardElement(cardData) {
+                const card = document.createElement('div');
+                card.className = 'col';
+                card.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${cardData.image}" class="card-img-top" alt="Event Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="./orgprof2.html" class="btn-link">${cardData.title}</a></h5>
+                            <p class="card-text">${cardData.description}</p>
+                            <p><strong>Date:</strong> ${cardData.date}</p>
+                            <p><strong>Location:</strong> ${cardData.location}</p>
+                            <p><strong>Skills Needed:</strong> ${cardData.skills}</p>
+                            <p><strong>Age Group:</strong> ${cardData.ageGroup}</p>
+                            <span class="perk-badge">${cardData.perk}</span>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                `;
+                return card;
+            }
+            
+            function displayCards() {
+                const carousel = document.getElementById('cardCarousel');
+                carousel.innerHTML = '';
+                const startIndex = currentPage * cardsPerPage;
+                const endIndex = startIndex + cardsPerPage;
+                const cardsToShow = cardData.slice(startIndex, endIndex);
+                
+                cardsToShow.forEach(card => {
+                    carousel.appendChild(createCardElement(card));
+                });
+                
+                updateNavigationButtons();
+            }
+            
+            function updateNavigationButtons() {
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                prevBtn.style.display = currentPage === 0 ? 'none' : 'block';
+                nextBtn.style.display = (currentPage + 1) * cardsPerPage >= cardData.length ? 'none' : 'block';
+            }
+            
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    displayCards();
+                }
+            });
+            
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                if ((currentPage + 1) * cardsPerPage < cardData.length) {
+                    currentPage++;
+                    displayCards();
+                }
+            });
+            
+            // Initial display
+            displayCards();
+            </script>
